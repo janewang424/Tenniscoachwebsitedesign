@@ -36,27 +36,27 @@ export default function App() {
           <div className="flex justify-between items-center h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <h1 className="text-xl md:text-2xl text-[#2D5F3F]">Coach Chris</h1>
+              <h1 className="text-xl md:text-2xl text-[#2D5F3F] font-bold">Coach Chris</h1>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
+              <button onClick={() => scrollToSection('home')} className="text-lg text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.home}
               </button>
-              <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
+              <button onClick={() => scrollToSection('about')} className="text-lg text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.about}
               </button>
-              <button onClick={() => scrollToSection('lessons')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
+              <button onClick={() => scrollToSection('lessons')} className="text-lg text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.lessons}
               </button>
-              <button onClick={() => scrollToSection('videos')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
+              <button onClick={() => scrollToSection('videos')} className="text-lg text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.videos}
               </button>
-              <button onClick={() => scrollToSection('reviews')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
+              <button onClick={() => scrollToSection('reviews')} className="text-lg text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.reviews}
               </button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
+              <button onClick={() => scrollToSection('contact')} className="text-lg text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.contact}
               </button>
             </div>
