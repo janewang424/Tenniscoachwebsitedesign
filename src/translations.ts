@@ -55,19 +55,31 @@ export const translations = {
       subtitle: 'Experience & Philosophy',
       experience: {
         title: 'Experience & Background',
-        description: 'With over 12 years of coaching experience, Coach Chris has helped hundreds of players reach their potential. From beginners learning their first strokes to competitive players refining their game, every student receives expert guidance tailored to their individual needs.',
+        description: 'Chris began playing tennis at age 13 and brings over 12 years of experience in competitive play and coaching, including teaching since 2014. He has competed in both high school and adult leagues and has spent the past five years as a high school varsity tennis coach, helping student-athletes develop strong fundamentals, match strategy, and confidence under real competitive conditions.',
+        highlights: ['12+ years of competitive play & coaching', 'Teaching since 2014', '5 years as varsity tennis coach'],
       },
       philosophy: {
         title: 'Coaching Philosophy',
-        description: 'Tennis should be challenging, rewarding, and fun. I focus on building strong fundamentals while developing each player\'s unique strengths. My approach emphasizes proper technique, strategic thinking, and mental toughness—all delivered in a positive, encouraging environment.',
+        description: 'Chris\'s coaching approach is deeply personal. Having navigated much of his own development through independent learning and match experience, he strives to be the coach he once needed — one who provides clear structure, honest feedback, and practical guidance. His goal is not just better strokes, but stronger, more resilient players.',
+        highlights: ['Clear structure & honest feedback', 'Break down complex techniques into easy-to-understand steps', 'Build confidence and long-term love for the game'],
       },
       development: {
-        title: 'Player Development',
-        description: 'Students consistently improve their technical skills, match performance, and love for the game. Many have gone on to play at competitive levels, earn spots on school teams, and achieve personal milestones they never thought possible.',
+        title: 'Player Development & Student Outcomes',
+        description: 'Chris has helped students across all levels achieve meaningful milestones in their tennis journeys, including making competitive high school tennis teams, improving consistency to compete confidently in adult match groups, and supporting college-level players seeking continued growth. Several students have continued their paths at respected institutions, including Mount San Antonio College (Mt. SAC), Riverside City College (RCC), and the University of Notre Dame.',
+        highlights: ['Students made competitive high school teams', 'College players at Mt. SAC, RCC & Notre Dame', 'Long-term player development focus'],
       },
       worksWith: {
         title: 'Who I Work With',
-        categories: ['Beginners', 'Junior Players', 'High School Teams', 'Adult Players', 'Competitive Athletes'],
+        categories: ['Young children building fundamentals', 'Middle & High School students', 'College players', 'Adult players'],
+      },
+      lessonTypes: {
+        title: 'Lesson Types',
+        description: 'Chris offers private one-on-one lessons, small group training, and high school team coaching. Each session is structured, intentional, and focused on progress.',
+        items: ['Private one-on-one lessons', 'Small group training', 'High school team coaching'],
+      },
+      location: {
+        title: 'Location',
+        description: 'Chris is based in Chino, California, and works with students and families throughout the surrounding communities.',
       },
     },
     videos: {
@@ -135,13 +147,25 @@ export const translations = {
         freeCall: 'Book a Free 10-Minute Call',
       },
       info: {
-        phone: '(XXX) XXX-XXXX',
+        phone: '(949) 247-0290',
         location: 'Chino, California',
       },
       levels: ['Beginner', 'Intermediate', 'Advanced', 'Competitive'],
     },
     cta: {
       scheduleLesson: 'Schedule a Lesson',
+      writeReview: 'Write a Review',
+    },
+    reviewModal: {
+      title: 'Write a Review',
+      name: 'Your Name',
+      role: 'Your Role',
+      rolePlaceholder: 'e.g., Parent, Student, Adult Player',
+      review: 'Your Review',
+      rating: 'Rating',
+      submit: 'Submit Review',
+      cancel: 'Cancel',
+      thankYou: 'Thank you for your review!',
     },
     floating: {
       callText: 'Call or Text',
@@ -201,19 +225,31 @@ export const translations = {
       subtitle: 'Experiencia y Filosofía',
       experience: {
         title: 'Experiencia y Antecedentes',
-        description: 'Con más de 12 años de experiencia como entrenador, Coach Chris ha ayudado a cientos de jugadores a alcanzar su potencial. Desde principiantes aprendiendo sus primeros golpes hasta jugadores competitivos perfeccionando su juego, cada estudiante recibe orientación experta adaptada a sus necesidades individuales.',
+        description: 'Chris comenzó a jugar tenis a los 13 años y aporta más de 12 años de experiencia en juego competitivo y entrenamiento, incluyendo enseñanza desde 2014. Ha competido tanto en ligas de secundaria como de adultos y ha pasado los últimos cinco años como entrenador varsity de tenis de secundaria, ayudando a estudiantes-atletas a desarrollar fundamentos sólidos, estrategia de partido y confianza bajo condiciones competitivas reales.',
+        highlights: ['12+ años de juego competitivo y entrenamiento', 'Enseñando desde 2014', '5 años como entrenador varsity'],
       },
       philosophy: {
         title: 'Filosofía de Entrenamiento',
-        description: 'El tenis debe ser desafiante, gratificante y divertido. Me enfoco en construir fundamentos sólidos mientras desarrollo las fortalezas únicas de cada jugador. Mi enfoque enfatiza la técnica adecuada, el pensamiento estratégico y la fortaleza mental, todo entregado en un ambiente positivo y alentador.',
+        description: 'El enfoque de entrenamiento de Chris es profundamente personal. Habiendo navegado gran parte de su propio desarrollo a través del aprendizaje independiente y experiencia en partidos, se esfuerza por ser el entrenador que una vez necesitó — uno que proporciona estructura clara, retroalimentación honesta y orientación práctica. Su objetivo no son solo mejores golpes, sino jugadores más fuertes y resilientes.',
+        highlights: ['Estructura clara y retroalimentación honesta', 'Técnicas complejas en pasos fáciles', 'Construir confianza y amor por el juego'],
       },
       development: {
-        title: 'Desarrollo del Jugador',
-        description: 'Los estudiantes mejoran consistentemente sus habilidades técnicas, rendimiento en partidos y amor por el juego. Muchos han llegado a jugar a niveles competitivos, ganar lugares en equipos escolares y lograr hitos personales que nunca creyeron posibles.',
+        title: 'Desarrollo del Jugador y Resultados',
+        description: 'Chris ha ayudado a estudiantes de todos los niveles a alcanzar hitos significativos en sus viajes tenísticos, incluyendo hacer equipos competitivos de secundaria, mejorar consistencia para competir con confianza en grupos de partidos de adultos, y apoyar a jugadores de nivel universitario buscando crecimiento continuo. Varios estudiantes han continuado sus caminos en instituciones respetadas, incluyendo Mount San Antonio College (Mt. SAC), Riverside City College (RCC), y la Universidad de Notre Dame.',
+        highlights: ['Estudiantes en equipos competitivos de secundaria', 'Jugadores universitarios en Mt. SAC, RCC y Notre Dame', 'Enfoque en desarrollo a largo plazo'],
       },
       worksWith: {
         title: 'Con Quién Trabajo',
-        categories: ['Principiantes', 'Jugadores Juveniles', 'Equipos Escolares', 'Jugadores Adultos', 'Atletas Competitivos'],
+        categories: ['Niños pequeños construyendo fundamentos', 'Estudiantes de secundaria y preparatoria', 'Jugadores universitarios', 'Jugadores adultos'],
+      },
+      lessonTypes: {
+        title: 'Tipos de Lección',
+        description: 'Chris ofrece lecciones privadas uno a uno, entrenamiento en grupos pequeños y entrenamiento de equipos de secundaria. Cada sesión es estructurada, intencional y enfocada en el progreso.',
+        items: ['Lecciones privadas uno a uno', 'Entrenamiento en grupos pequeños', 'Entrenamiento de equipos de secundaria'],
+      },
+      location: {
+        title: 'Ubicación',
+        description: 'Chris está ubicado en Chino, California, y trabaja con estudiantes y familias en las comunidades circundantes.',
       },
     },
     videos: {
@@ -281,13 +317,25 @@ export const translations = {
         freeCall: 'Reservar una Llamada Gratuita de 10 Minutos',
       },
       info: {
-        phone: '(XXX) XXX-XXXX',
+        phone: '(949) 247-0290',
         location: 'Chino, California',
       },
       levels: ['Principiante', 'Intermedio', 'Avanzado', 'Competitivo'],
     },
     cta: {
       scheduleLesson: 'Agendar una Lección',
+      writeReview: 'Escribir una Reseña',
+    },
+    reviewModal: {
+      title: 'Escribir una Reseña',
+      name: 'Tu Nombre',
+      role: 'Tu Rol',
+      rolePlaceholder: 'ej., Padre, Estudiante, Jugador Adulto',
+      review: 'Tu Reseña',
+      rating: 'Calificación',
+      submit: 'Enviar Reseña',
+      cancel: 'Cancelar',
+      thankYou: '¡Gracias por tu reseña!',
     },
     floating: {
       callText: 'Llamar o Mensaje',
@@ -347,19 +395,31 @@ export const translations = {
       subtitle: '经验与理念',
       experience: {
         title: '经验与背景',
-        description: '克里斯教练拥有超过12年的执教经验，帮助数百名球员发挥潜力。从学习第一次击球的初学者到完善比赛的竞技球员，每位学生都能获得针对其个人需求量身定制的专业指导。',
+        description: '克里斯从13岁开始打网球，拥有超过12年的竞技比赛和教练经验，自2014年起开始教学。他参加过高中和成人联赛，并在过去五年担任高中校队网球教练，帮助学生运动员在真实的竞技条件下发展扎实的基本功、比赛策略和自信心。',
+        highlights: ['12年以上竞技比赛和教练经验', '2014年起开始教学', '5年校队教练经验'],
       },
       philosophy: {
         title: '执教理念',
-        description: '网球应该具有挑战性、有成就感且有趣。我专注于建立扎实的基础，同时发展每位球员的独特优势。我的方法强调正确的技术、战略思维和心理韧性——所有这些都在积极鼓励的环境中提供。',
+        description: '克里斯的教练方法非常个人化。通过独立学习和比赛经验完成大部分自我发展后，他努力成为自己曾经需要的那种教练——一个提供清晰结构、诚实反馈和实用指导的教练。他的目标不仅是更好的击球，而是培养更强大、更有韧性的球员。',
+        highlights: ['清晰的结构和诚实的反馈', '将复杂技术分解为易懂步骤', '建立信心和对网球的长期热爱'],
       },
       development: {
-        title: '球员发展',
-        description: '学生持续提高技术技能、比赛表现和对网球的热爱。许多人已经达到竞技水平，赢得校队位置，并实现了他们从未想过可能实现的个人里程碑。',
+        title: '球员发展与学生成果',
+        description: '克里斯帮助各个水平的学生在网球之旅中取得有意义的里程碑，包括进入竞技高中网球队、提高稳定性以自信地参加成人比赛、以及支持大学级球员寻求持续成长。多名学生已在知名院校继续他们的道路，包括圣安东尼奥山学院(Mt. SAC)、河滨城市学院(RCC)和圣母大学。',
+        highlights: ['学生进入竞技高中网球队', '大学球员就读于Mt. SAC、RCC和圣母大学', '专注于长期球员发展'],
       },
       worksWith: {
         title: '教学对象',
-        categories: ['初学者', '青少年球员', '高中校队', '成人球员', '竞技运动员'],
+        categories: ['打基础的儿童', '初高中学生', '大学球员', '成人球员'],
+      },
+      lessonTypes: {
+        title: '课程类型',
+        description: '克里斯提供一对一私人课程、小组训练和高中校队教练。每节课都是结构化的、有目的的，并专注于进步。',
+        items: ['一对一私人课程', '小组训练', '高中校队教练'],
+      },
+      location: {
+        title: '位置',
+        description: '克里斯位于加州奇诺，与周边社区的学生和家庭合作。',
       },
     },
     videos: {
@@ -434,6 +494,18 @@ export const translations = {
     },
     cta: {
       scheduleLesson: '预约课程',
+      writeReview: '撰写评价',
+    },
+    reviewModal: {
+      title: '撰写评价',
+      name: '您的姓名',
+      role: '您的身份',
+      rolePlaceholder: '例如：家长、学生、成人球员',
+      review: '您的评价',
+      rating: '评分',
+      submit: '提交评价',
+      cancel: '取消',
+      thankYou: '感谢您的评价！',
     },
     floating: {
       callText: '电话或短信',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, Mail, MapPin, Star, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Star, ChevronDown, CheckCircle } from 'lucide-react';
 import { translations, Language } from './translations';
 import { Button } from './components/Button';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
@@ -7,12 +7,13 @@ import { SectionCTA } from './components/SectionCTA';
 import { TestimonialCard } from './components/TestimonialCard';
 import { LessonCard } from './components/LessonCard';
 import { VideoCard } from './components/VideoCard';
-import { HighlightCard } from './components/HighlightCard';
 import { FloatingActionButton } from './components/FloatingActionButton';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [reviewForm, setReviewForm] = useState({ name: '', role: '', text: '', rating: 5 });
   const t = translations[language];
 
   const scrollToSection = (id: string) => {
@@ -54,9 +55,6 @@ export default function App() {
               <button onClick={() => scrollToSection('videos')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.videos}
               </button>
-              <button onClick={() => scrollToSection('highlights')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
-                {t.nav.highlights}
-              </button>
               <button onClick={() => scrollToSection('reviews')} className="text-gray-700 hover:text-[#2D5F3F] transition-colors">
                 {t.nav.reviews}
               </button>
@@ -93,9 +91,6 @@ export default function App() {
                 </button>
                 <button onClick={() => scrollToSection('videos')} className="text-left px-4 py-2 hover:bg-gray-50 rounded-lg">
                   {t.nav.videos}
-                </button>
-                <button onClick={() => scrollToSection('highlights')} className="text-left px-4 py-2 hover:bg-gray-50 rounded-lg">
-                  {t.nav.highlights}
                 </button>
                 <button onClick={() => scrollToSection('reviews')} className="text-left px-4 py-2 hover:bg-gray-50 rounded-lg">
                   {t.nav.reviews}
@@ -183,15 +178,45 @@ export default function App() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl mb-3 text-[#2D5F3F]">{t.about.experience.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{t.about.experience.description}</p>
+                <p className="text-gray-700 leading-relaxed mb-3">{t.about.experience.description}</p>
+                {t.about.experience.highlights && (
+                  <ul className="space-y-2">
+                    {t.about.experience.highlights.map((highlight: string, idx: number) => (
+                      <li key={idx} className="flex items-center gap-2 text-[#2D5F3F]">
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                        <span className="font-medium">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div>
                 <h3 className="text-2xl mb-3 text-[#2D5F3F]">{t.about.philosophy.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{t.about.philosophy.description}</p>
+                <p className="text-gray-700 leading-relaxed mb-3">{t.about.philosophy.description}</p>
+                {t.about.philosophy.highlights && (
+                  <ul className="space-y-2">
+                    {t.about.philosophy.highlights.map((highlight: string, idx: number) => (
+                      <li key={idx} className="flex items-center gap-2 text-[#2D5F3F]">
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                        <span className="font-medium">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div>
                 <h3 className="text-2xl mb-3 text-[#2D5F3F]">{t.about.development.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{t.about.development.description}</p>
+                <p className="text-gray-700 leading-relaxed mb-3">{t.about.development.description}</p>
+                {t.about.development.highlights && (
+                  <ul className="space-y-2">
+                    {t.about.development.highlights.map((highlight: string, idx: number) => (
+                      <li key={idx} className="flex items-center gap-2 text-[#2D5F3F]">
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                        <span className="font-medium">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
@@ -257,9 +282,14 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {t.videos.categories.map((category, index) => {
+            {/* Top Spin Video - Featured Video */}
+            <VideoCard
+              title="Top Spin Technique"
+              videoSrc="/videos/top spin.MP4"
+            />
+            {/* Other video categories */}
+            {t.videos.categories.slice(1).map((category, index) => {
               const images = [
-                'https://images.unsplash.com/photo-1758314810718-0d312d498210?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBmb3JlaGFuZCUyMGFjdGlvbnxlbnwxfHx8fDE3Njk0OTQwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
                 'https://images.unsplash.com/photo-1759819599208-0b79a7f3f347?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjByYWNrZXQlMjBiYWxscyUyMGNvdXJ0fGVufDF8fHx8MTc2OTQ5NDAwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
                 'https://images.unsplash.com/photo-1660463528352-50e6f0693e95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBzZXJ2ZSUyMHByb2Zlc3Npb25hbCUyMHBsYXllcnxlbnwxfHx8fDE3Njk0OTQwMTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
                 'https://images.unsplash.com/photo-1758346509692-1bf789ac46ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHRlbm5pcyUyMHBsYXllciUyMHRyYWluaW5nfGVufDF8fHx8MTc2OTQ5NDAxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
@@ -275,29 +305,6 @@ export default function App() {
                 />
               );
             })}
-          </div>
-
-          <SectionCTA text={t.cta.scheduleLesson} onClick={scrollToContact} />
-        </div>
-      </section>
-
-      {/* Highlights Section */}
-      <section id="highlights" className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl mb-4">{t.highlights.title}</h2>
-            <p className="text-lg text-gray-600">{t.highlights.subtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {t.highlights.items.map((item, index) => (
-              <HighlightCard
-                key={index}
-                title={item.title}
-                description={item.description}
-                year={item.year}
-              />
-            ))}
           </div>
 
           <SectionCTA text={t.cta.scheduleLesson} onClick={scrollToContact} />
@@ -324,9 +331,86 @@ export default function App() {
             ))}
           </div>
 
-          <SectionCTA text={t.cta.scheduleLesson} onClick={scrollToContact} />
+          <SectionCTA text={t.cta.writeReview} onClick={() => setShowReviewModal(true)} />
         </div>
       </section>
+
+      {/* Review Modal */}
+      {showReviewModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setShowReviewModal(false)}>
+          <div className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl text-[#2D5F3F]">{t.reviewModal.title}</h3>
+              <button onClick={() => setShowReviewModal(false)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <form onSubmit={(e) => { 
+              e.preventDefault(); 
+              alert(t.reviewModal.thankYou);
+              setShowReviewModal(false);
+              setReviewForm({ name: '', role: '', text: '', rating: 5 });
+            }} className="space-y-4">
+              <div>
+                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.name}</label>
+                <input
+                  type="text"
+                  required
+                  value={reviewForm.name}
+                  onChange={(e) => setReviewForm({ ...reviewForm, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.role}</label>
+                <input
+                  type="text"
+                  required
+                  placeholder={t.reviewModal.rolePlaceholder}
+                  value={reviewForm.role}
+                  onChange={(e) => setReviewForm({ ...reviewForm, role: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.rating}</label>
+                <div className="flex gap-2">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      type="button"
+                      onClick={() => setReviewForm({ ...reviewForm, rating: star })}
+                      className="focus:outline-none"
+                    >
+                      <Star 
+                        className={`w-8 h-8 ${star <= reviewForm.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.review}</label>
+                <textarea
+                  rows={4}
+                  required
+                  value={reviewForm.text}
+                  onChange={(e) => setReviewForm({ ...reviewForm, text: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all resize-none"
+                />
+              </div>
+              <div className="flex gap-4 pt-4">
+                <Button type="button" variant="secondary" size="lg" className="flex-1" onClick={() => setShowReviewModal(false)}>
+                  {t.reviewModal.cancel}
+                </Button>
+                <Button type="submit" variant="primary" size="lg" className="flex-1">
+                  {t.reviewModal.submit}
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Contact Section */}
       <section id="contact" className="py-16 md:py-24 bg-white">
