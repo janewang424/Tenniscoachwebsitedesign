@@ -125,7 +125,7 @@ export default function App() {
               </Button>
               <div className="bg-white/10 border-2 border-white text-white px-6 py-3 rounded-lg text-lg font-medium flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5" />
-                Call or Text: (949) 247-0290
+                {t.hero.callTextCTA}: (909) 247-0290
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@ export default function App() {
       </footer>
 
       {/* Floating Action Button (Mobile Only) */}
-      <FloatingActionButton text={t.floating.callText} phoneNumber="(949) 247-0290" />
+      <FloatingActionButton text={t.floating.callText} phoneNumber="(909) 247-0290" />
     </div>
   );
 }

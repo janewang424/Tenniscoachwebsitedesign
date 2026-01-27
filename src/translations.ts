@@ -148,8 +148,8 @@ export const translations = {
         firstTimeOnly: '* First-time students only',
       },
       info: {
-        phone: '(949) 247-0290',
-        location: 'Chino, California',
+        phone: '(909) 247-0290',
+        location: 'Chino, Chino Hills, Eastvale, Costa Mesa',
       },
       levels: ['Beginner', 'Intermediate', 'Advanced', 'Competitive'],
     },
@@ -319,8 +319,8 @@ export const translations = {
         firstTimeOnly: '* Solo estudiantes nuevos',
       },
       info: {
-        phone: '(949) 247-0290',
-        location: 'Chino, California',
+        phone: '(909) 247-0290',
+        location: 'Chino, Chino Hills, Eastvale, Costa Mesa',
       },
       levels: ['Principiante', 'Intermedio', 'Avanzado', 'Competitivo'],
     },
@@ -490,8 +490,8 @@ export const translations = {
         firstTimeOnly: '* 仅限首次学员',
       },
       info: {
-        phone: '(949) 247-0290',
-        location: '加州奇诺',
+        phone: '(909) 247-0290',
+        location: '奇诺, 奇诺岗, 伊斯特维尔, 科斯塔梅萨',
       },
       levels: ['初学者', '中级', '高级', '竞技'],
     },
