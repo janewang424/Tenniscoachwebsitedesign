@@ -63,14 +63,19 @@ export function VideoCard({ title, thumbnail, videoSrc, onClick }: VideoCardProp
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
           onClick={handleClose}
         >
+          {/* Close button - positioned outside the video container */}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleClose();
+            }}
+            className="absolute top-4 right-4 z-[60] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2 hover:bg-black/70"
+            aria-label="Close video"
+          >
+            <X className="w-8 h-8" />
+          </button>
           <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={handleClose}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-              aria-label="Close video"
-            >
-              <X className="w-8 h-8" />
-            </button>
             <video
               ref={videoRef}
               className="w-full rounded-xl"

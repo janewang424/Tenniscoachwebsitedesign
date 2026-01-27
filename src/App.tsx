@@ -26,10 +26,6 @@ export default function App() {
 
   const scrollToContact = () => scrollToSection('contact');
 
-  const handleCallText = () => {
-    window.location.href = `tel:${t.contact.info.phone}`;
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -125,9 +121,10 @@ export default function App() {
               <Button variant="secondary" size="lg" onClick={scrollToContact}>
                 {t.hero.scheduleCTA}
               </Button>
-              <Button variant="outline" size="lg" onClick={handleCallText} className="bg-white/10 border-white text-white hover:bg-white hover:text-[#2D5F3F]">
-                {t.hero.callTextCTA}
-              </Button>
+              <div className="bg-white/10 border-2 border-white text-white px-6 py-3 rounded-lg text-lg font-medium flex items-center justify-center gap-2">
+                <Phone className="w-5 h-5" />
+                Call or Text: (949) 247-0290
+              </div>
             </div>
           </div>
         </div>
@@ -168,7 +165,7 @@ export default function App() {
             {/* Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 md:h-96 lg:h-full">
               <img 
-                src="https://images.unsplash.com/photo-1660463531472-a86bb8f9f48e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb2FjaCUyMHRlYWNoaW5nJTIwbGVzc29ufGVufDF8fHx8MTc2OTQ5NDAwOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/images/Coach Chris.PNG"
                 alt="Coach Chris teaching"
                 className="w-full h-full object-cover"
               />
@@ -379,11 +376,15 @@ export default function App() {
                     <button
                       key={star}
                       type="button"
-                      onClick={() => setReviewForm({ ...reviewForm, rating: star })}
-                      className="focus:outline-none"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setReviewForm(prev => ({ ...prev, rating: star }));
+                      }}
+                      className="focus:outline-none cursor-pointer p-1 hover:scale-110 transition-transform"
                     >
                       <Star 
-                        className={`w-8 h-8 ${star <= reviewForm.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+                        className={`w-8 h-8 transition-colors ${star <= reviewForm.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 hover:text-yellow-200'}`}
                       />
                     </button>
                   ))}
@@ -496,9 +497,10 @@ export default function App() {
                 <Button type="submit" variant="primary" size="lg" className="flex-1">
                   {t.contact.form.submit}
                 </Button>
-                <Button type="button" variant="secondary" size="lg" className="flex-1" onClick={handleCallText}>
-                  {t.contact.form.freeCall}
-                </Button>
+                <div className="flex-1 bg-[#4A8B5C] text-white px-6 py-3 rounded-lg text-lg font-medium flex items-center justify-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  Call or Text: (949) 247-0290
+                </div>
               </div>
             </form>
 
@@ -529,7 +531,7 @@ export default function App() {
       </footer>
 
       {/* Floating Action Button (Mobile Only) */}
-      <FloatingActionButton text={t.floating.callText} onClick={handleCallText} />
+      <FloatingActionButton text={t.floating.callText} phoneNumber="(949) 247-0290" />
     </div>
   );
 }
