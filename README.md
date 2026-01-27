@@ -1,7 +1,7 @@
 
-  # Tennis Coach Website Design
+  # Coach Chris Tennis
 
-  This is a code bundle for Tennis Coach Website Design. The original project is available at https://www.figma.com/design/pp8FBfNwtPfwBu7vQOQWSI/Tennis-Coach-Website-Design.
+  This is a code bundle for Coach Chris Tennis Design. The original project is available at https://www.figma.com/design/pp8FBfNwtPfwBu7vQOQWSI/Tennis-Coach-Website-Design.
 
   ## Running the code
 
