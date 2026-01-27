@@ -145,6 +145,7 @@ export const translations = {
         availability: 'Preferred Availability',
         submit: 'Book a Lesson',
         freeCall: 'Book a Free 10-Minute Call',
+        firstTimeOnly: '* First-time students only',
       },
       info: {
         phone: '(949) 247-0290',
@@ -315,6 +316,7 @@ export const translations = {
         availability: 'Disponibilidad Preferida',
         submit: 'Reservar una Lección',
         freeCall: 'Reservar una Llamada Gratuita de 10 Minutos',
+        firstTimeOnly: '* Solo estudiantes nuevos',
       },
       info: {
         phone: '(949) 247-0290',
@@ -485,9 +487,10 @@ export const translations = {
         availability: '首选时间',
         submit: '预订课程',
         freeCall: '预约免费10分钟通话',
+        firstTimeOnly: '* 仅限首次学员',
       },
       info: {
-        phone: '(XXX) XXX-XXXX',
+        phone: '(949) 247-0290',
         location: '加州奇诺',
       },
       levels: ['初学者', '中级', '高级', '竞技'],

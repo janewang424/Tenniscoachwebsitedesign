@@ -10,7 +10,7 @@ import { VideoCard } from './components/VideoCard';
 import { FloatingActionButton } from './components/FloatingActionButton';
 
 // Google Form Links
-const GOOGLE_FORM_REVIEW = 'YOUR_REVIEW_GOOGLE_FORM_LINK_HERE'; // Replace with your review form link when ready
+const GOOGLE_FORM_REVIEW = 'https://forms.gle/gv47ShQy8evdHojG9';
 const GOOGLE_FORM_BOOK_LESSON = 'https://forms.gle/8zivcGPFseWp7ekQ8';
 
 export default function App() {
@@ -113,7 +113,7 @@ export default function App() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="max-w-3xl">
-            <h2 className="text-4xl md:text-6xl mb-6 leading-tight">
+            <h2 className="text-4xl md:text-6xl mb-6 leading-tight font-bold">
               {t.hero.title}
             </h2>
             <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
@@ -159,7 +159,7 @@ export default function App() {
       <section id="about" className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl mb-4">{t.about.title}</h2>
+            <h2 className="text-3xl md:text-5xl mb-4 font-bold">{t.about.title}</h2>
             <p className="text-lg text-gray-600">{t.about.subtitle}</p>
           </div>
 
@@ -176,7 +176,7 @@ export default function App() {
             {/* Content */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl mb-3 text-[#2D5F3F]">{t.about.experience.title}</h3>
+                <h3 className="text-2xl mb-3 text-[#2D5F3F] font-bold">{t.about.experience.title}</h3>
                 <p className="text-gray-700 leading-relaxed mb-3">{t.about.experience.description}</p>
                 {t.about.experience.highlights && (
                   <ul className="space-y-2">
@@ -190,7 +190,7 @@ export default function App() {
                 )}
               </div>
               <div>
-                <h3 className="text-2xl mb-3 text-[#2D5F3F]">{t.about.philosophy.title}</h3>
+                <h3 className="text-2xl mb-3 text-[#2D5F3F] font-bold">{t.about.philosophy.title}</h3>
                 <p className="text-gray-700 leading-relaxed mb-3">{t.about.philosophy.description}</p>
                 {t.about.philosophy.highlights && (
                   <ul className="space-y-2">
@@ -204,7 +204,7 @@ export default function App() {
                 )}
               </div>
               <div>
-                <h3 className="text-2xl mb-3 text-[#2D5F3F]">{t.about.development.title}</h3>
+                <h3 className="text-2xl mb-3 text-[#2D5F3F] font-bold">{t.about.development.title}</h3>
                 <p className="text-gray-700 leading-relaxed mb-3">{t.about.development.description}</p>
                 {t.about.development.highlights && (
                   <ul className="space-y-2">
@@ -222,7 +222,7 @@ export default function App() {
 
           {/* Who I Work With */}
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-md">
-            <h3 className="text-2xl mb-6 text-center text-[#2D5F3F]">{t.about.worksWith.title}</h3>
+            <h3 className="text-2xl mb-6 text-center text-[#2D5F3F] font-bold">{t.about.worksWith.title}</h3>
             <div className="flex flex-wrap justify-center gap-3 md:gap-4">
               {t.about.worksWith.categories.map((category, index) => (
                 <span 
@@ -243,7 +243,7 @@ export default function App() {
       <section id="lessons" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl mb-4">{t.lessons.title}</h2>
+            <h2 className="text-3xl md:text-5xl mb-4 font-bold">{t.lessons.title}</h2>
             <p className="text-lg text-gray-600">{t.lessons.subtitle}</p>
           </div>
 
@@ -267,8 +267,6 @@ export default function App() {
               scheduleText={t.hero.scheduleCTA}
             />
           </div>
-
-          <SectionCTA text={t.cta.scheduleLesson} onClick={scrollToContact} />
         </div>
       </section>
 
@@ -276,7 +274,7 @@ export default function App() {
       <section id="videos" className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl mb-4">{t.videos.title}</h2>
+            <h2 className="text-3xl md:text-5xl mb-4 font-bold">{t.videos.title}</h2>
             <p className="text-lg text-gray-600">{t.videos.subtitle}</p>
           </div>
 
@@ -314,7 +312,7 @@ export default function App() {
       <section id="reviews" className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl mb-4">{t.reviews.title}</h2>
+            <h2 className="text-3xl md:text-5xl mb-4 font-bold">{t.reviews.title}</h2>
             <p className="text-lg text-gray-600">{t.reviews.subtitle}</p>
           </div>
 
@@ -341,15 +339,13 @@ export default function App() {
       <section id="contact" className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl mb-4">{t.contact.title}</h2>
+            <h2 className="text-3xl md:text-5xl mb-4 font-bold">{t.contact.title}</h2>
             <p className="text-lg text-gray-600">{t.contact.subtitle}</p>
           </div>
 
           <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
             {/* Centered Book a Lesson Button */}
             <div className="flex flex-col items-center justify-center text-center">
-              <p className="text-gray-600 mb-6 text-lg">Ready to start your tennis journey?</p>
-              
               <Button 
                 variant="primary" 
                 size="lg" 
@@ -359,7 +355,7 @@ export default function App() {
                 {t.contact.form.submit}
               </Button>
               
-              <p className="text-sm text-gray-500 mt-4 italic">* First-time students only</p>
+              <p className="text-sm text-gray-500 mt-4 italic">{t.contact.form.firstTimeOnly}</p>
               
               {/* Contact Info */}
               <div className="mt-10 pt-8 border-t border-gray-200 w-full">
