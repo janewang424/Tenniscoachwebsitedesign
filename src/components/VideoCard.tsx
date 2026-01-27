@@ -60,22 +60,26 @@ export function VideoCard({ title, thumbnail, videoSrc, onClick }: VideoCardProp
       {/* Video Modal */}
       {isPlaying && videoSrc && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
-          onClick={handleClose}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
         >
-          {/* Close button - positioned outside the video container */}
+          {/* Close button - fixed position, always visible */}
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              handleClose();
-            }}
-            className="absolute top-4 right-4 z-[60] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2 hover:bg-black/70"
+            onClick={handleClose}
+            className="fixed top-6 right-6 z-[100] text-white hover:text-red-400 transition-colors bg-red-600 hover:bg-red-700 rounded-full p-3 shadow-lg"
             aria-label="Close video"
+            style={{ cursor: 'pointer' }}
           >
-            <X className="w-8 h-8" />
+            <X className="w-8 h-8" strokeWidth={3} />
           </button>
-          <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
+          
+          {/* Click overlay to close */}
+          <div 
+            className="absolute inset-0 z-[51]" 
+            onClick={handleClose}
+          />
+          
+          {/* Video container */}
+          <div className="relative max-w-4xl w-full mx-4 z-[52]">
             <video
               ref={videoRef}
               className="w-full rounded-xl"
@@ -86,6 +90,14 @@ export function VideoCard({ title, thumbnail, videoSrc, onClick }: VideoCardProp
               Your browser does not support the video tag.
             </video>
             <h4 className="text-white text-center mt-4 text-xl">{title}</h4>
+            
+            {/* Bottom close button for mobile */}
+            <button
+              onClick={handleClose}
+              className="mt-6 mx-auto block bg-white text-gray-800 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+            >
+              Close Video
+            </button>
           </div>
         </div>
       )}

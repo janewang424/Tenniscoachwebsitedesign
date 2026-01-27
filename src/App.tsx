@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, Mail, MapPin, Star, ChevronDown, CheckCircle } from 'lucide-react';
+import { Menu, X, Phone, MapPin, ChevronDown, CheckCircle } from 'lucide-react';
 import { translations, Language } from './translations';
 import { Button } from './components/Button';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
@@ -9,11 +9,13 @@ import { LessonCard } from './components/LessonCard';
 import { VideoCard } from './components/VideoCard';
 import { FloatingActionButton } from './components/FloatingActionButton';
 
+// Google Form Links
+const GOOGLE_FORM_REVIEW = 'YOUR_REVIEW_GOOGLE_FORM_LINK_HERE'; // Replace with your review form link when ready
+const GOOGLE_FORM_BOOK_LESSON = 'https://forms.gle/8zivcGPFseWp7ekQ8';
+
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showReviewModal, setShowReviewModal] = useState(false);
-  const [reviewForm, setReviewForm] = useState({ name: '', role: '', text: '', rating: 5 });
   const t = translations[language];
 
   const scrollToSection = (id: string) => {
@@ -328,90 +330,12 @@ export default function App() {
             ))}
           </div>
 
-          <SectionCTA text={t.cta.writeReview} onClick={() => setShowReviewModal(true)} />
+          <SectionCTA 
+            text={t.cta.writeReview} 
+            onClick={() => window.open(GOOGLE_FORM_REVIEW, '_blank')} 
+          />
         </div>
       </section>
-
-      {/* Review Modal */}
-      {showReviewModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setShowReviewModal(false)}>
-          <div className="bg-white rounded-2xl p-6 md:p-8 max-w-lg w-full mx-4 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl text-[#2D5F3F]">{t.reviewModal.title}</h3>
-              <button onClick={() => setShowReviewModal(false)} className="text-gray-500 hover:text-gray-700">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <form onSubmit={(e) => { 
-              e.preventDefault(); 
-              alert(t.reviewModal.thankYou);
-              setShowReviewModal(false);
-              setReviewForm({ name: '', role: '', text: '', rating: 5 });
-            }} className="space-y-4">
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.name}</label>
-                <input
-                  type="text"
-                  required
-                  value={reviewForm.name}
-                  onChange={(e) => setReviewForm({ ...reviewForm, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.role}</label>
-                <input
-                  type="text"
-                  required
-                  placeholder={t.reviewModal.rolePlaceholder}
-                  value={reviewForm.role}
-                  onChange={(e) => setReviewForm({ ...reviewForm, role: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.rating}</label>
-                <div className="flex gap-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <button
-                      key={star}
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setReviewForm(prev => ({ ...prev, rating: star }));
-                      }}
-                      className="focus:outline-none cursor-pointer p-1 hover:scale-110 transition-transform"
-                    >
-                      <Star 
-                        className={`w-8 h-8 transition-colors ${star <= reviewForm.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 hover:text-yellow-200'}`}
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.reviewModal.review}</label>
-                <textarea
-                  rows={4}
-                  required
-                  value={reviewForm.text}
-                  onChange={(e) => setReviewForm({ ...reviewForm, text: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all resize-none"
-                />
-              </div>
-              <div className="flex gap-4 pt-4">
-                <Button type="button" variant="secondary" size="lg" className="flex-1" onClick={() => setShowReviewModal(false)}>
-                  {t.reviewModal.cancel}
-                </Button>
-                <Button type="submit" variant="primary" size="lg" className="flex-1">
-                  {t.reviewModal.submit}
-                </Button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* Contact Section */}
       <section id="contact" className="py-16 md:py-24 bg-white">
@@ -421,99 +345,33 @@ export default function App() {
             <p className="text-lg text-gray-600">{t.contact.subtitle}</p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-10 shadow-lg">
-            <form onSubmit={(e) => { e.preventDefault(); alert('Form submitted!'); }} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm mb-2 text-gray-700">{t.contact.form.name}</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm mb-2 text-gray-700">{t.contact.form.email}</label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm mb-2 text-gray-700">{t.contact.form.phone}</label>
-                  <input
-                    type="tel"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm mb-2 text-gray-700">{t.contact.form.age}</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.contact.form.level}</label>
-                <select
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                >
-                  <option value="">Select level</option>
-                  {t.contact.levels.map((level, index) => (
-                    <option key={index} value={level}>{level}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.contact.form.goals}</label>
-                <textarea
-                  rows={4}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all resize-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2 text-gray-700">{t.contact.form.availability}</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g., Weekday evenings, Saturday mornings"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2D5F3F] focus:ring-2 focus:ring-[#2D5F3F]/20 outline-none transition-all"
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button type="submit" variant="primary" size="lg" className="flex-1">
-                  {t.contact.form.submit}
-                </Button>
-                <div className="flex-1 bg-[#4A8B5C] text-white px-6 py-3 rounded-lg text-lg font-medium flex items-center justify-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  Call or Text: (949) 247-0290
-                </div>
-              </div>
-            </form>
-
-            {/* Contact Info */}
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-gray-600">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-[#2D5F3F]" />
-                  <span>{t.contact.info.phone}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-[#2D5F3F]" />
-                  <span>{t.contact.info.location}</span>
+          <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
+            {/* Centered Book a Lesson Button */}
+            <div className="flex flex-col items-center justify-center text-center">
+              <p className="text-gray-600 mb-6 text-lg">Ready to start your tennis journey?</p>
+              
+              <Button 
+                variant="primary" 
+                size="lg" 
+                className="px-12 py-4 text-xl"
+                onClick={() => window.open(GOOGLE_FORM_BOOK_LESSON, '_blank')}
+              >
+                {t.contact.form.submit}
+              </Button>
+              
+              <p className="text-sm text-gray-500 mt-4 italic">* First-time students only</p>
+              
+              {/* Contact Info */}
+              <div className="mt-10 pt-8 border-t border-gray-200 w-full">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-5 h-5 text-[#2D5F3F]" />
+                    <span>{t.contact.info.phone}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-5 h-5 text-[#2D5F3F]" />
+                    <span>{t.contact.info.location}</span>
+                  </div>
                 </div>
               </div>
             </div>
