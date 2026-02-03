@@ -24,7 +24,7 @@ export function VideoCard({ title, thumbnail, videoSrc, onClick }: VideoCardProp
       video.playsInline = true;
       
       video.addEventListener('loadeddata', () => {
-        video.currentTime = 1; // Seek to just after start to get first frame
+        video.currentTime = 1.5; // Seek to just after start to get first frame
       });
       
       video.addEventListener('seeked', () => {
