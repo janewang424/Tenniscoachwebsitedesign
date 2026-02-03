@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Play, X } from 'lucide-react';
 
 interface VideoCardProps {
@@ -10,7 +10,37 @@ interface VideoCardProps {
 
 export function VideoCard({ title, thumbnail, videoSrc, onClick }: VideoCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [posterUrl, setPosterUrl] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const thumbnailVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Generate poster from first frame of video
+  useEffect(() => {
+    if (videoSrc && !thumbnail) {
+      const video = document.createElement('video');
+      video.crossOrigin = 'anonymous';
+      video.src = videoSrc;
+      video.muted = true;
+      video.playsInline = true;
+      
+      video.addEventListener('loadeddata', () => {
+        video.currentTime = 1; // Seek to just after start to get first frame
+      });
+      
+      video.addEventListener('seeked', () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          setPosterUrl(canvas.toDataURL('image/jpeg', 0.8));
+        }
+      });
+      
+      video.load();
+    }
+  }, [videoSrc, thumbnail]);
 
   const handleClick = () => {
     if (videoSrc) {
@@ -27,26 +57,25 @@ export function VideoCard({ title, thumbnail, videoSrc, onClick }: VideoCardProp
     }
   };
 
+  // Determine thumbnail source
+  const thumbnailSrc = thumbnail || posterUrl;
+
   return (
     <>
       <button
         onClick={handleClick}
         className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all bg-gray-900"
       >
-        {videoSrc ? (
-          <video
-            className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80"
-            muted
-            playsInline
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-        ) : (
+        {thumbnailSrc ? (
           <img 
-            src={thumbnail} 
+            src={thumbnailSrc} 
             alt={title}
             className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80"
           />
+        ) : (
+          <div className="w-full h-48 md:h-56 bg-gray-800 flex items-center justify-center">
+            <span className="text-gray-400">Loading...</span>
+          </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">

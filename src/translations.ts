@@ -13,7 +13,7 @@ export const translations = {
     },
     hero: {
       title: 'Improve Faster. Play Smarter. Love the Game.',
-      subtitle: 'Professional tennis coaching in Chino, California for players of all ages and skill levels.',
+      subtitle: 'Professional tennis coaching in Chino, Chino Hills, Eastvale, and Costa Mesa for players of all ages and skill levels.',
       scheduleCTA: 'Schedule a Lesson',
       callTextCTA: 'Call or Text',
     },
@@ -85,7 +85,7 @@ export const translations = {
     videos: {
       title: 'Teaching Videos',
       subtitle: 'Learn from instructional content',
-      categories: ['Forehand', 'Backhand', 'Serve', 'Footwork', 'Strategy', 'Kids'],
+      categories: ['Forehand', 'Top Spin', 'Backhand', 'Serve', 'Footwork', 'Strategy'],
     },
     highlights: {
       title: 'Highlight Moments',
@@ -184,7 +184,7 @@ export const translations = {
     },
     hero: {
       title: 'Mejora Más Rápido. Juega Más Inteligente. Ama el Juego.',
-      subtitle: 'Entrenamiento profesional de tenis en Chino, California para jugadores de todas las edades y niveles.',
+      subtitle: 'Entrenamiento profesional de tenis en Chino, Chino Hills, Eastvale y Costa Mesa para jugadores de todas las edades y niveles.',
       scheduleCTA: 'Agendar una Lección',
       callTextCTA: 'Llamar o Enviar Mensaje',
     },
@@ -256,7 +256,7 @@ export const translations = {
     videos: {
       title: 'Videos Instructivos',
       subtitle: 'Aprende del contenido educativo',
-      categories: ['Derecha', 'Revés', 'Servicio', 'Juego de Pies', 'Estrategia', 'Niños'],
+      categories: ['Derecha', 'Top Spin', 'Revés', 'Servicio', 'Juego de Pies', 'Estrategia'],
     },
     highlights: {
       title: 'Momentos Destacados',
@@ -355,7 +355,7 @@ export const translations = {
     },
     hero: {
       title: '更快进步。更聪明比赛。热爱网球。',
-      subtitle: '加州奇诺专业网球教练，面向所有年龄和技能水平的球员。',
+      subtitle: '奇诺、奇诺岗、伊斯特维尔和科斯塔梅萨专业网球教练，面向所有年龄和技能水平的球员。',
       scheduleCTA: '预约课程',
       callTextCTA: '电话或短信',
     },
@@ -427,7 +427,7 @@ export const translations = {
     videos: {
       title: '教学视频',
       subtitle: '从教学内容中学习',
-      categories: ['正手', '反手', '发球', '步法', '策略', '儿童'],
+      categories: ['正手', '上旋球', '反手', '发球', '步法', '策略'],
     },
     highlights: {
       title: '精彩时刻',

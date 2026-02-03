@@ -279,19 +279,28 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {/* Top Spin Video - Featured Video */}
+            {/* Forehand - placeholder */}
             <VideoCard
-              title="Top Spin Technique"
+              title={t.videos.categories[0]}
+              thumbnail="https://images.unsplash.com/photo-1759819599208-0b79a7f3f347?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjByYWNrZXQlMjBiYWxscyUyMGNvdXJ0fGVufDF8fHx8MTc2OTQ5NDAwOXww&ixlib=rb-4.1.0&q=80&w=1080"
+              onClick={() => alert(`Video: ${t.videos.categories[0]}`)}
+            />
+            {/* Top Spin Video - uses first frame as thumbnail */}
+            <VideoCard
+              title={t.videos.categories[1]}
               videoSrc="/videos/top spin.MP4"
             />
-            {/* Other video categories */}
-            {t.videos.categories.slice(1).map((category, index) => {
+            {/* Backhand Video - uses first frame as thumbnail */}
+            <VideoCard
+              title={t.videos.categories[2]}
+              videoSrc="/videos/backhand.MP4"
+            />
+            {/* Other video categories (Serve, Footwork, Strategy - index 3, 4, 5) */}
+            {t.videos.categories.slice(3).map((category, index) => {
               const images = [
-                'https://images.unsplash.com/photo-1759819599208-0b79a7f3f347?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjByYWNrZXQlMjBiYWxscyUyMGNvdXJ0fGVufDF8fHx8MTc2OTQ5NDAwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
                 'https://images.unsplash.com/photo-1660463528352-50e6f0693e95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBzZXJ2ZSUyMHByb2Zlc3Npb25hbCUyMHBsYXllcnxlbnwxfHx8fDE3Njk0OTQwMTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
                 'https://images.unsplash.com/photo-1758346509692-1bf789ac46ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHRlbm5pcyUyMHBsYXllciUyMHRyYWluaW5nfGVufDF8fHx8MTc2OTQ5NDAxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
                 'https://images.unsplash.com/photo-1660463531472-a86bb8f9f48e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb2FjaCUyMHRlYWNoaW5nJTIwbGVzc29ufGVufDF8fHx8MTc2OTQ5NDAwOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-                'https://images.unsplash.com/photo-1765124540365-174dce5433ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBjb3VydCUyMG5ldCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3Njk0OTQwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
               ];
               return (
                 <VideoCard
