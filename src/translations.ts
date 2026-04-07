@@ -85,7 +85,7 @@ export const translations = {
     videos: {
       title: 'Teaching Videos',
       subtitle: 'Learn from instructional content',
-      categories: ['Forehand', 'Top Spin', 'Backhand', 'Serve', 'Footwork', 'Strategy'],
+      categories: ['Forehand(Top Spin)', 'Backhand', 'Serve'],
     },
     highlights: {
       title: 'Highlight Moments',
@@ -256,7 +256,7 @@ export const translations = {
     videos: {
       title: 'Videos Instructivos',
       subtitle: 'Aprende del contenido educativo',
-      categories: ['Derecha', 'Top Spin', 'Revés', 'Servicio', 'Juego de Pies', 'Estrategia'],
+      categories: ['Derecha(Top Spin)', 'Revés', 'Servicio'],
     },
     highlights: {
       title: 'Momentos Destacados',
@@ -427,7 +427,7 @@ export const translations = {
     videos: {
       title: '教学视频',
       subtitle: '从教学内容中学习',
-      categories: ['正手', '上旋球', '反手', '发球', '步法', '策略'],
+      categories: ['正手(上旋球)', '反手', '发球'],
     },
     highlights: {
       title: '精彩时刻',
