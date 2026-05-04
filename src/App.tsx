@@ -278,7 +278,7 @@ export default function App() {
             <p className="text-lg text-gray-600">{t.videos.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
             <VideoCard
               title={t.videos.categories[0]}
               videoSrc="/videos/top spin.mp4"
@@ -286,11 +286,6 @@ export default function App() {
             <VideoCard
               title={t.videos.categories[1]}
               videoSrc="/videos/backhand.mp4"
-            />
-            <VideoCard
-              title={t.videos.categories[2]}
-              thumbnail="https://images.unsplash.com/photo-1660463528352-50e6f0693e95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBzZXJ2ZSUyMHByb2Zlc3Npb25hbCUyMHBsYXllcnxlbnwxfHx8fDE3Njk0OTQwMTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              onClick={() => alert(`Video: ${t.videos.categories[2]}`)}
             />
           </div>
 

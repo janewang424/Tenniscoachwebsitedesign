@@ -85,7 +85,7 @@ export const translations = {
     videos: {
       title: 'Teaching Videos',
       subtitle: 'Learn from instructional content',
-      categories: ['Forehand(Top Spin)', 'Backhand', 'Serve'],
+      categories: ['Forehand(Top Spin)', 'Backhand'],
     },
     highlights: {
       title: 'Highlight Moments',
