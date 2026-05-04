@@ -254,7 +254,7 @@ export const translations = {
       },
     },
     videos: {
-      title: 'Videos Instructivos',
+      title: 'Videos Instr',
       subtitle: 'Aprende del contenido educativo',
       categories: ['Derecha(Top Spin)', 'Revés', 'Servicio'],
     },
