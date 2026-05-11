@@ -28,7 +28,7 @@ export const translations = {
       private: {
         title: 'Private Lessons',
         subtitle: 'One-on-One Training',
-        price: '$65',
+        price: '$60',
         duration: 'per hour',
         features: [
           'Personalized instruction',
@@ -199,7 +199,7 @@ export const translations = {
       private: {
         title: 'Lecciones Privadas',
         subtitle: 'Entrenamiento Individual',
-        price: '$65',
+        price: '$60',
         duration: 'por hora',
         features: [
           'Instrucción personalizada',
@@ -370,7 +370,7 @@ export const translations = {
       private: {
         title: '私人课程',
         subtitle: '一对一训练',
-        price: '$65',
+        price: '$60',
         duration: '每小时',
         features: [
           '个性化指导',
